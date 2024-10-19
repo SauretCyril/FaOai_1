@@ -99,6 +99,7 @@ async function agent(userInput) {
       });
     } else if (finish_reason === "stop") {
       messages.push(message);
+      
       return message.content;
     }
   }
@@ -109,4 +110,10 @@ const response = await agent(
   "Please suggest some activities based on my location and the weather."
 );
 
-console.log("response:", response);
+//console.log("response:", response);
+
+// // Example of correct export
+// export const agent = () => {
+//     // function implementation
+// };
+export { agent };

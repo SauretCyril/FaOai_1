@@ -25,16 +25,21 @@
     <div id="response"></div>
 
     <script>
-        document.getElementById('submit').addEventListener('click', function() {
+        document.getElementById('submit').addEventListener('click', async function() {
             const question = document.getElementById('question').value;
-            // Ici, vous pouvez appeler votre API ou votre fonction pour obtenir la réponse
-            // Pour cet exemple, nous allons simuler une réponse
-            const response = `Vous avez posé la question : "${question}". Voici la réponse simulée.`;
             const responseDiv = document.getElementById('response');
-            responseDiv.innerText = response;
-            responseDiv.style.display = 'block';
+            console.log('Question soumise:', question); // Ajout d'un log pour la question
+            try {
+                // Appel de la fonction ask du fichier scripts.js
+                await ask(question);
+                
+            } catch (error) {
+                console.error('Erreur lors de l\'appel de ask:', error); // Log de l'erreur
+                responseDiv.innerText = 'Erreur: ' + error.message;
+            }
+           
         });
     </script>
+    <script src="./scripts.js"></script>
 </body>
 </html>
-
