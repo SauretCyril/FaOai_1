@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface de Question</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #response {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Posez votre question</h1>
+    <input type="text" id="question" placeholder="Entrez votre question ici" />
+    <button id="submit">Soumettre</button>
+
+    <div id="response"></div>
+
+    <script>
+        document.getElementById('submit').addEventListener('click', function() {
+            const question = document.getElementById('question').value;
+            // Ici, vous pouvez appeler votre API ou votre fonction pour obtenir la réponse
+            // Pour cet exemple, nous allons simuler une réponse
+            const response = `Vous avez posé la question : "${question}". Voici la réponse simulée.`;
+            const responseDiv = document.getElementById('response');
+            responseDiv.innerText = response;
+            responseDiv.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
+
